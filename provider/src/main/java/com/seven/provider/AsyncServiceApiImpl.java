@@ -1,6 +1,6 @@
 package com.seven.provider;
 
-import com.seven.entity.IServiceApi;
+import com.seven.entity.IAsyncServiceApi;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
@@ -10,18 +10,18 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Service
-public class ServiceApi implements IServiceApi {
+public class AsyncServiceApiImpl implements IAsyncServiceApi {
 
 
     @Override
     public String say1(String msg) throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(4000);
         return "001-provider message is: " + msg;
     }
 
     @Override
     public String say2(String msg) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         return "002-provider message is: " + msg;
     }
 }

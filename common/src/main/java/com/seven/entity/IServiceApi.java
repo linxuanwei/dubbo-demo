@@ -5,5 +5,8 @@ package com.seven.entity;
  * @date 2020/1/22 12:51
  */
 public interface IServiceApi {
-    String say(String msg);
+    String say1(String msg) throws InterruptedException;
+
+    String say2(String msg) throws InterruptedException;
+
 }

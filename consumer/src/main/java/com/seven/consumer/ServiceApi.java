@@ -1,7 +1,7 @@
 package com.seven.consumer;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.seven.entity.IServiceApi;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ServiceApi {
-    @Reference
+    @Reference(interfaceClass = IServiceApi.class)
     private IServiceApi service;
 
-    public String getMessage(String msg) {
-        return service.say(msg);
+    public String getMessage(String msg) throws InterruptedException {
+        return service.say1(msg);
     }
 }

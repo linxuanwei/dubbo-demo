@@ -1,7 +1,7 @@
 package com.seven.consumer.controller;
 
-import com.seven.consumer.AsyncServiceApi;
-import com.seven.consumer.ServiceApi;
+import com.seven.consumer.service.AsyncServiceApi;
+import com.seven.consumer.service.ServiceApi;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +31,6 @@ public class ServiceController {
         Long start = System.currentTimeMillis();
         String a = asyncServiceApi.say(msg);
         Long end = System.currentTimeMillis();
-        return a + " time:" + (end - start);
+        return a + "\n总耗时:" + (end - start) + "毫秒";
     }
 }

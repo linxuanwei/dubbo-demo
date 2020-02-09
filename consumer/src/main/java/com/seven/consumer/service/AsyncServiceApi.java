@@ -1,4 +1,4 @@
-package com.seven.consumer;
+package com.seven.consumer.service;
 
 import com.seven.entity.IAsyncServiceApi;
 import org.apache.dubbo.config.annotation.Reference;
@@ -9,11 +9,14 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /**
+ * 异步调用provider接口
+ *
  * @author Seven.Lin
  * @date 2020/2/9 18:45
  */
 @Component
 public class AsyncServiceApi {
+    // 声明为异步 async=true
     @Reference(interfaceClass = IAsyncServiceApi.class, timeout = 10000, async = true)
     private IAsyncServiceApi asyncServiceApi;
 
@@ -23,7 +26,7 @@ public class AsyncServiceApi {
 
         asyncServiceApi.say2(msg);
         Future<String> helloFuture2 = RpcContext.getContext().getFuture();
-        return "say1=" + helloFuture.get() + "    say2=" + helloFuture2.get();
+        return "say1=" + helloFuture.get() + "\nsay2=" + helloFuture2.get() + "\n";
     }
 
 
